@@ -1,0 +1,33 @@
+{
+  "$comentario": "La declaracion de la seccion. Renombra el archivo a ansgis.<serviceId>.json",
+
+  "providerId": "ansgis",
+  "providerName": "AnsGIS",
+  "serviceId": "plantilla",
+  "version": 1,
+
+  "name": "Nombre en criollo",
+  "description": "Una linea: que problema resuelve esta seccion para su organizacion.",
+
+  "syncBlock": false,
+  "syncPubKeyDomain": "_ans.ans.zone",
+
+  "variables": [
+    { "nombre": "zona",  "descripcion": "La zona donde va a vivir la seccion", "requerido": true },
+    { "nombre": "alias", "descripcion": "Como querés llamarla", "requerido": false, "porDefecto": "plantilla" }
+  ],
+
+  "declara": {
+    "ansName": "ans://v1.0.0.%alias%-%zona%.ans.zone",
+    "ruta": "%zona%.ans.zone/a/%alias%",
+    "capacidades": [
+      { "paquete": "sf", "funcion": "st_buffer" }
+    ],
+    "datos": [
+      { "fuente": "GCBA", "dataset": "barrios" }
+    ],
+    "herramientas": [
+      { "cli": "ansgis.red", "universo": "https://emri-setup.r-universe.dev" }
+    ]
+  }
+}
