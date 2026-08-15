@@ -1,0 +1,22 @@
+# El repo de una seccion esta casi vacio a proposito: 20 lineas que llaman a la
+# maquinaria central. Calcado del universe-template de r-universe, cuyo sync.yml
+# son 20 lineas que llaman a r-universe-org/workflows/...@v3. La logica vive UNA
+# vez, versionada; los inquilinos la reciben sin tocar nada.
+name: Universo
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["seccion.json", "notas/**", "obras/**"]
+  pull_request:
+
+# Un trabajo por vez, como hace r-universe.
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  registrar:
+    name: Verificar la seccion y sumarla al universo
+    uses: emri-setup/ansgis-maquinaria/.github/workflows/verificar.yml@v1
+    with:
+      carpeta: "."
