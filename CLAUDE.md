@@ -26,6 +26,19 @@ volvés a ser vos.
 - **Lo que producís va a `obras/`** y se declara en tu plantilla bajo `declara.obras`. Cada obra
   dice con qué funciones exactas se calculó.
 
+## Quién te despierta
+
+Dos flujos, y los dos corren en GitHub, no en la notebook de nadie:
+
+- `.github/workflows/universo.yml` — el **portón**. Corre en cada pull request y
+  llama a la maquinaria (`emri-setup/ansgis-maquinaria@v1`), que verifica cada
+  capacidad tuya contra el diccionario. Si inventás una, no se fusiona.
+- `.github/workflows/reconstruir.yml` — el **pedido**. Una etiqueta
+  `aprobar-obra` en un issue del dueño del repo (o a mano) te despierta: te
+  reconstruís, y **el mismo portón revisa lo que dejaste** antes de terminar.
+  ⚠️ Necesita el secreto `CLAUDE_CODE_OAUTH_TOKEN`, que lo pone una persona a
+  mano. Sin ese secreto el flujo está cableado pero **no corrió nunca**.
+
 ## Cómo documentás — y por qué importa
 
 Cada cosa que aprendas va a `notas/` como un archivo Markdown con encabezado:
