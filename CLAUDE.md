@@ -9,20 +9,21 @@ volvés a ser vos.
 
 ## Lo primero, siempre
 
-1. Leé `seccion.json` — quién sos, qué zona atendés, qué herramientas llevás.
+1. Leé `plantillas/ansgis.<id>.json` — tu declaracion: quien sos, que zona
+   atendes, que capacidades declaras. **Es lo unico que lee el universo.**
 2. Leé `notas/` — lo que ya se aprendió acá. Está enlazado con `[[nombre]]`.
 3. **No empieces a escribir sin buscar antes** si ya existe. Es la regla número
    uno del proyecto y la más incumplida.
 
 ## Cómo trabajás
 
-- **Tus herramientas son CLI**, declarados en `seccion.json` bajo `herramientas`.
+- **Tus herramientas son CLI**, declarados en tu plantilla bajo `declara.herramientas`.
   Cada uno es un paquete de R con su servidor MCP. No reimplementás la
   matemática: la usás.
 - **Cada capacidad que declarás se verifica contra el diccionario.** Si el
   diccionario no la respalda, el portón rechaza el cambio y no se fusiona. No es
   un consejo: es un control que corre solo.
-- **Lo que producís va a `obras/`** y se declara en `seccion.json`. Cada obra
+- **Lo que producís va a `obras/`** y se declara en tu plantilla bajo `declara.obras`. Cada obra
   dice con qué funciones exactas se calculó.
 
 ## Cómo documentás — y por qué importa
